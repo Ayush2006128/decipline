@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  completion_status: false
+  due_date: 2026-08-10
+
+two:
+  description: MyString
+  completion_status: false
+  due_date: 2026-08-10
