@@ -1,2 +1,13 @@
-<h1>Be deciplined.</h1>
-<p>Discipline is the bridge between goals and accomplishment.</p>
+<div>
+  <h1>Welcome!</h1>
+  <p>Here are your top habbits:</p>
+  <% @habbits.each do |habbit| %>
+    <div>
+      <ul>
+        <li>
+          <%= link_to habbit.description, habbit_path(habbit) %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
