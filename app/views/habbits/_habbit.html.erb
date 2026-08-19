@@ -11,7 +11,7 @@
 
   <div>
     <strong>Due date:</strong>
-    <%= habbit.due_date %>
+    <%= habbit.daily_task? ? "Daily task" : habbit.due_date %>
   </div>
 
 </div>

@@ -2,6 +2,8 @@ require "test_helper"
 
 class HabbitsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+    sign_in_as(@user)
     @habbit = habbits(:one)
   end
 
@@ -21,6 +23,7 @@ class HabbitsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to habbit_url(Habbit.last)
+    assert_equal @user, Habbit.last.user
   end
 
   test "should show habbit" do

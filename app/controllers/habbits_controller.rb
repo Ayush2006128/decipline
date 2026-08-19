@@ -3,7 +3,7 @@ class HabbitsController < ApplicationController
 
   # GET /habbits or /habbits.json
   def index
-    @habbits = Habbit.all
+    @habbits = Current.user.habbits.order(due_date: :asc)
   end
 
   # GET /habbits/1 or /habbits/1.json
@@ -12,7 +12,7 @@ class HabbitsController < ApplicationController
 
   # GET /habbits/new
   def new
-    @habbit = Habbit.new
+    @habbit = Current.user.habbits.build
   end
 
   # GET /habbits/1/edit
@@ -21,7 +21,7 @@ class HabbitsController < ApplicationController
 
   # POST /habbits or /habbits.json
   def create
-    @habbit = Habbit.new(habbit_params)
+    @habbit = Current.user.habbits.build(habbit_params)
 
     respond_to do |format|
       if @habbit.save
@@ -60,7 +60,7 @@ class HabbitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habbit
-      @habbit = Habbit.find(params.expect(:id))
+      @habbit = Current.user.habbits.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
